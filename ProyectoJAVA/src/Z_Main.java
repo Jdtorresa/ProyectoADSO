@@ -15,6 +15,8 @@ public class Z_Main {
         gestion_usuarios usuarios = new gestion_usuarios();
         gestion_join_Encuentra_Incidencia_Tiene_Prioridad joinEITP = new gestion_join_Encuentra_Incidencia_Tiene_Prioridad();
         gestion_join_Inicio_Usuarios_Incidencia joinIUI = new gestion_join_Inicio_Usuarios_Incidencia();
+        gestion_join_Incidencia_Usuarios joinIU = new gestion_join_Incidencia_Usuarios();
+        gestion_join_Usuarios_Inicio joinUI = new gestion_join_Usuarios_Inicio();
 
         String R1;
         String R2;
@@ -55,8 +57,10 @@ public class Z_Main {
                 System.out.println();
                 if (R3.equals("A")) {
                     String fecha = "2021-01-30";
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println("ID_user:    " + inicio.C1(fecha).getIduser());
                     System.out.println("Fecha:      " + inicio.C1(fecha).getFecha());
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println();
                 } else if (R3.equals("B")) {
                     String fecha = "2021-01-30";
@@ -65,19 +69,27 @@ public class Z_Main {
                     for (incidencia i : res) {
                         count++;
                     }
-                    System.out.println("ID_user:                     " + inicio.C1(fecha).getIduser());
+                    System.out.println("--------------------------------------------------------------------------------------");
+                    System.out.println("ID_user:                     " + joinUI.C1(fecha).getUser_iduser());
+                    System.out.println("Nombre:                      " + joinUI.C1(fecha).getUser_nombre());
+                    System.out.println("Fecha:                       " + joinUI.C1(fecha).getIni_fecha());
                     System.out.println("Cantidad de incidencias:     " + count);
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println();
                 } else if (R3.equals("C")) {
                     String fecha = "2020-04-28";
                     ArrayList<incidencia> res = incidencia.C1(fecha);
+                    System.out.println("--------------------------------------------------------------------------------------");
                     for (incidencia i : res) {
                         System.out.println("Incidencia:    " + i.getNombre());
                         System.out.println("Ubicacion:     " + i.getUbicacion());
                         System.out.println();
                     }
+                    System.out.println("--------------------------------------------------------------------------------------");
                 } else {
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println("Opcion invalida");
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println();
                 }
             } else if (R2.equals("B")) {
@@ -90,23 +102,30 @@ public class Z_Main {
                 if (R4.equals("A")) {
                     String priori = "P2";
                     ArrayList<incidencia> res = incidencia.C2(priori);
+                    System.out.println("--------------------------------------------------------------------------------------");
                     for (incidencia i : res) {
                         System.out.println("Nombre de incidencia: " + i.getNombre());
                         System.out.println("Numero de incidencia: " + i.getNoincidencia());
                         System.out.println("Prioridad: " + i.getIdprioridad());
                         System.out.println();
                     }
+                    System.out.println("--------------------------------------------------------------------------------------");
                 } else if (R4.equals("B")) {
                     String priori = "P1";
-                    ArrayList<usuarios> res = usuarios.C1(priori);
-                    for (usuarios i : res) {
-                        System.out.println("Nombres: " + i.getNombre());
-                        System.out.println("Apellidos: " + i.getApellido());
-                        System.out.println("Prioridad: " + priori);
+                    ArrayList<join_Incidencia_Usuarios> res = joinIU.C1(priori);
+                    System.out.println("--------------------------------------------------------------------------------------");
+                    for (join_Incidencia_Usuarios i : res) {
+                        System.out.println("Nombres: " + i.getUser_nombre());
+                        System.out.println("Apellidos: " + i.getUser_apellido());
+                        System.out.println("Prioridad: " + i.getInci_idprioridad());
+                        System.out.println("Descripcion: " + i.getInci_nombre());
                         System.out.println();
                     }
+                    System.out.println("--------------------------------------------------------------------------------------");
                 } else {
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println("Opcion invalida");
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println();
                 }
             } else if (R2.equals("C")) {
@@ -119,22 +138,28 @@ public class Z_Main {
                 if (R5.equals("A")) {
                     String estad = "E1";
                     ArrayList<incidencia> res = incidencia.C3(estad);
+                    System.out.println("--------------------------------------------------------------------------------------");
                     for (incidencia i : res) {
                         System.out.println("Nombre de incidencia: " + i.getNombre());
                         System.out.println("Numero de incidencia: " + i.getNoincidencia());
                         System.out.println("Estado: " + estad);
                         System.out.println();
                     }
+                    System.out.println("--------------------------------------------------------------------------------------");
                 } else if (R5.equals("B")) {
                     String estad = "E2";
                     ArrayList<join_Encuentra_Incidencia_Tiene_Prioridad> res = joinEITP.C1(estad);
+                    System.out.println("--------------------------------------------------------------------------------------");
                     for (join_Encuentra_Incidencia_Tiene_Prioridad i : res) {
                         System.out.println("Prioridad:        " + i.getPrioridad_tipo_prioridad());
                         System.out.println("ID incidencia:    " + i.getIncidencia_noincidencia());
                         System.out.println();
                     }
+                    System.out.println("--------------------------------------------------------------------------------------");
                 } else {
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println("Opcion invalida");
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println();
                 }
             } else if (R2.equals("D")) {
@@ -146,17 +171,23 @@ public class Z_Main {
                 if (R6.equals("A")) {
                     String ubicaci = "aventura";
                     ArrayList<join_Inicio_Usuarios_Incidencia> res = joinIUI.C1(ubicaci);
+                    System.out.println("--------------------------------------------------------------------------------------");
                     for (join_Inicio_Usuarios_Incidencia i : res) {
                         System.out.println("Nombre user:   " + i.getUsuarios_nombre());
                         System.out.println("Id inicio:     " + i.getInicio_idinicio());
                         System.out.println();
                     }
+                    System.out.println("--------------------------------------------------------------------------------------");
                 } else {
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println("Opcion invalida");
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println();
                 }
             } else if (!R2.equals("A") && !R2.equals("B") && !R2.equals("C") && !R2.equals("D") && !R2.equals("E")) {
+                System.out.println("--------------------------------------------------------------------------------------");
                 System.out.println("Opcion invalida");
+                System.out.println("--------------------------------------------------------------------------------------");
                 System.out.println();
             }
             while (!R2.equals("E")) {
@@ -179,8 +210,10 @@ public class Z_Main {
                     System.out.println();
                     if (R3.equals("A")) {
                         String fecha = "2021-01-30";
+                        System.out.println("--------------------------------------------------------------------------------------");
                         System.out.println("ID_user:    " + inicio.C1(fecha).getIduser());
                         System.out.println("Fecha:      " + inicio.C1(fecha).getFecha());
+                        System.out.println("--------------------------------------------------------------------------------------");
                         System.out.println();
                     } else if (R3.equals("B")) {
                         String fecha = "2021-01-30";
@@ -189,19 +222,27 @@ public class Z_Main {
                         for (incidencia i : res) {
                             count++;
                         }
-                        System.out.println("ID_user:                     " + inicio.C1(fecha).getIduser());
+                        System.out.println("--------------------------------------------------------------------------------------");
+                        System.out.println("ID_user:                     " + joinUI.C1(fecha).getUser_iduser());
+                        System.out.println("Nombre:                      " + joinUI.C1(fecha).getUser_nombre());
+                        System.out.println("Fecha:                       " + joinUI.C1(fecha).getIni_fecha());
                         System.out.println("Cantidad de incidencias:     " + count);
+                        System.out.println("--------------------------------------------------------------------------------------");
                         System.out.println();
                     } else if (R3.equals("C")) {
                         String fecha = "2020-04-28";
                         ArrayList<incidencia> res = incidencia.C1(fecha);
+                        System.out.println("--------------------------------------------------------------------------------------");
                         for (incidencia i : res) {
                             System.out.println("Incidencia:    " + i.getNombre());
                             System.out.println("Ubicacion:     " + i.getUbicacion());
                             System.out.println();
                         }
+                        System.out.println("--------------------------------------------------------------------------------------");
                     } else {
+                        System.out.println("--------------------------------------------------------------------------------------");
                         System.out.println("Opcion invalida");
+                        System.out.println("--------------------------------------------------------------------------------------");
                         System.out.println();
                     }
                 } else if (R2.equals("B")) {
@@ -214,23 +255,30 @@ public class Z_Main {
                     if (R4.equals("A")) {
                         String priori = "P2";
                         ArrayList<incidencia> res = incidencia.C2(priori);
+                        System.out.println("--------------------------------------------------------------------------------------");
                         for (incidencia i : res) {
                             System.out.println("Nombre de incidencia: " + i.getNombre());
                             System.out.println("Numero de incidencia: " + i.getNoincidencia());
                             System.out.println("Prioridad: " + i.getIdprioridad());
                             System.out.println();
                         }
+                        System.out.println("--------------------------------------------------------------------------------------");
                     } else if (R4.equals("B")) {
                         String priori = "P1";
-                        ArrayList<usuarios> res = usuarios.C1(priori);
-                        for (usuarios i : res) {
-                            System.out.println("Nombres: " + i.getNombre());
-                            System.out.println("Apellidos: " + i.getApellido());
-                            System.out.println("Prioridad: " + priori);
+                        ArrayList<join_Incidencia_Usuarios> res = joinIU.C1(priori);
+                        System.out.println("--------------------------------------------------------------------------------------");
+                        for (join_Incidencia_Usuarios i : res) {
+                            System.out.println("Nombres: " + i.getUser_nombre());
+                            System.out.println("Apellidos: " + i.getUser_apellido());
+                            System.out.println("Prioridad: " + i.getInci_idprioridad());
+                            System.out.println("Descripcion: " + i.getInci_nombre());
                             System.out.println();
                         }
+                        System.out.println("--------------------------------------------------------------------------------------");
                     } else {
+                        System.out.println("--------------------------------------------------------------------------------------");
                         System.out.println("Opcion invalida");
+                        System.out.println("--------------------------------------------------------------------------------------");
                         System.out.println();
                     }
                 } else if (R2.equals("C")) {
@@ -243,22 +291,28 @@ public class Z_Main {
                     if (R5.equals("A")) {
                         String estad = "E1";
                         ArrayList<incidencia> res = incidencia.C3(estad);
+                        System.out.println("--------------------------------------------------------------------------------------");
                         for (incidencia i : res) {
                             System.out.println("Nombre de incidencia: " + i.getNombre());
                             System.out.println("Numero de incidencia: " + i.getNoincidencia());
                             System.out.println("Estado: " + estad);
                             System.out.println();
                         }
+                        System.out.println("--------------------------------------------------------------------------------------");
                     } else if (R5.equals("B")) {
                         String estad = "E2";
                         ArrayList<join_Encuentra_Incidencia_Tiene_Prioridad> res = joinEITP.C1(estad);
+                        System.out.println("--------------------------------------------------------------------------------------");
                         for (join_Encuentra_Incidencia_Tiene_Prioridad i : res) {
                             System.out.println("Prioridad:        " + i.getPrioridad_tipo_prioridad());
                             System.out.println("ID incidencia:    " + i.getIncidencia_noincidencia());
                             System.out.println();
                         }
+                        System.out.println("--------------------------------------------------------------------------------------");
                     } else {
+                        System.out.println("--------------------------------------------------------------------------------------");
                         System.out.println("Opcion invalida");
+                        System.out.println("--------------------------------------------------------------------------------------");
                         System.out.println();
                     }
                 } else if (R2.equals("D")) {
@@ -270,17 +324,23 @@ public class Z_Main {
                     if (R6.equals("A")) {
                         String ubicaci = "aventura";
                         ArrayList<join_Inicio_Usuarios_Incidencia> res = joinIUI.C1(ubicaci);
+                        System.out.println("--------------------------------------------------------------------------------------");
                         for (join_Inicio_Usuarios_Incidencia i : res) {
                             System.out.println("Nombre user:   " + i.getUsuarios_nombre());
                             System.out.println("Id inicio:     " + i.getInicio_idinicio());
                             System.out.println();
                         }
+                        System.out.println("--------------------------------------------------------------------------------------");
                     } else {
+                        System.out.println("--------------------------------------------------------------------------------------");
                         System.out.println("Opcion invalida");
+                        System.out.println("--------------------------------------------------------------------------------------");
                         System.out.println();
                     }
                 } else if (!R2.equals("A") && !R2.equals("B") && !R2.equals("C") && !R2.equals("D") && !R2.equals("E")) {
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println("Opcion invalida");
+                    System.out.println("--------------------------------------------------------------------------------------");
                     System.out.println();
                 }
             }
@@ -449,7 +509,7 @@ public class Z_Main {
                     // ----------Aqui voy
                 } else if (R8.equals("D")) {
                     inicio init=new inicio();
-                    System.out.println("Ingrese el id de inicio a insertar: "); init.setIdinicio(Entrada.nextInt());
+                    System.out.println("Ingrese el id de inicio a insertar: "); init.setIdinicio(Entrada.next());
                     if(inicio.ConsultarInicio(init.getIdinicio())==null){
                         System.out.println("Ingrese el id del usuario: "); init.setIduser(Entrada.next());
                         if(usuarios.consultarUsuarios(init.getIduser())!=null){
@@ -512,7 +572,7 @@ public class Z_Main {
                     // ---------------------------------------------------------------Insertar Tiene-------------------------------------------------------------------
                 } else if (R8.equals("F")) {
                     tiene tien=new tiene();
-                    System.out.print("Ingrese un id para el nuevo registro: "); tien.setNºregitro(Entrada.nextInt());
+                    System.out.print("Ingrese un id para el nuevo registro: "); tien.setNºregitro(Entrada.next());
                     if(tiene.ConsultarTiene(tien.getNºregitro())==null){
                         System.out.print("Ingrese el numero de incidencia: "); tien.setNoincidencia(Entrada.next());
                         if(incidencia.consultarIncidencia(tien.getNoincidencia())!=null) {
@@ -564,7 +624,7 @@ public class Z_Main {
                         Entrada.nextLine();
                         System.out.print("Ingrese el nombre: "); user.setNombre(Entrada.nextLine());
                         System.out.print("Ingrese el apellido: "); user.setApellido(Entrada.nextLine());
-                        System.out.print("Ingrese el documento: "); user.setDocumento(Entrada.nextInt());
+                        System.out.print("Ingrese el documento: "); user.setDocumento(Entrada.next());
                         if(usuarios.insertarUsuario(user)){
                             System.out.println();
                             System.out.println("--------------------------------------------------------------------------------------");
@@ -630,7 +690,7 @@ public class Z_Main {
                     }
                 } else if (R8.equals("D")) {
                     System.out.println("Ingrese el ID de inicio a eliminar: ");
-                    int numeroid=Entrada.nextInt();
+                    String numeroid=Entrada.next();
                     if(inicio.eliminarInicio(numeroid)){
                         System.out.println("--Se elimino el registro correctamente--");
                     }else{
@@ -646,7 +706,7 @@ public class Z_Main {
                     }
                 } else if (R8.equals("F")) {
                     System.out.println("Ingrese el ID de 'tiene' a eliminar: ");
-                    int numeroid=Entrada.nextInt();
+                    String numeroid = Entrada.next();
                     if(tiene.eliminarTiene(numeroid)){
                         System.out.println("--Se elimino el registro correctamente--");
                     }else{
@@ -801,7 +861,7 @@ public class Z_Main {
 
                 } else if (R8.equals("D")) {
                     inicio inic=new inicio();
-                    System.out.print("Ingrese el id de inicio a actualizar: "); inic.setIdinicio(Entrada.nextInt());
+                    System.out.print("Ingrese el id de inicio a actualizar: "); inic.setIdinicio(Entrada.next());
                     if(inicio.ConsultarInicio(inic.getIdinicio())!=null){
                         System.out.println("||||| DATOS A ACTUALIZAR |||| id= "+inic.getIdinicio());
                         System.out.print("Ingrese el id del usuario: "); inic.setIduser(Entrada.next());
@@ -865,7 +925,7 @@ public class Z_Main {
                     }
                 } else if (R8.equals("F")) {
                     tiene tien=new tiene();
-                    System.out.print("Ingrese el numero de registro a actualizar: "); tien.setNºregitro(Entrada.nextInt());
+                    System.out.print("Ingrese el numero de registro a actualizar: "); tien.setNºregitro(Entrada.next());
                     if(tiene.ConsultarTiene(tien.getNºregitro())!=null){
                         System.out.println("||||| DATOS A ACTUALIZAR |||| id= "+tien.getNºregitro());
                         System.out.print("Ingrese el numero de incidencia: "); tien.setNoincidencia(Entrada.next());
@@ -919,7 +979,7 @@ public class Z_Main {
                         System.out.print("Ingrese el apellido del usuario: ");
                         usu.setApellido(Entrada.next());
                         System.out.print("Ingrese el documento del usuario: ");
-                        usu.setDocumento(Entrada.nextInt());
+                        usu.setDocumento(Entrada.next());
                         if (usuarios.editarUsuarios(usu)) {
                             System.out.println();
                             System.out.println("--------------------------------------------------------------------------------------");

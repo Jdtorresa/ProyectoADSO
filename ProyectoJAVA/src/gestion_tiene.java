@@ -10,16 +10,16 @@ public class gestion_tiene {
     Connection conec=null; //Z_conexion
 
 
-    public tiene ConsultarTiene(int nRegistro){
+    public tiene ConsultarTiene(String nRegistro){
         tiene tien=null;
         try{
             conec=con.conecta();
             String sql="select * from tiene where N°registro=?";
             ps=conec.prepareStatement(sql);
-            ps.setInt(1, nRegistro);
+            ps.setString(1, nRegistro);
             res=ps.executeQuery();
             while(res.next()){
-                tien=new tiene(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5));
+                tien=new tiene(res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5));
             }
         }catch (SQLException ex){
             System.out.println("Error al consultar: "+ex);
@@ -35,7 +35,7 @@ public class gestion_tiene {
             ps.setString(1, prioridad);
             res=ps.executeQuery();
             while(res.next()){
-                tiene tien=new tiene(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5));
+                tiene tien=new tiene(res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5));
                 datos.add(tien);
             }
         }catch (SQLException ex){
@@ -52,7 +52,7 @@ public class gestion_tiene {
             ps.setString(1, noincidencia);
             res=ps.executeQuery();
             while(res.next()){
-                tiene tien=new tiene(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5));
+                tiene tien=new tiene(res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5));
                 datos.add(tien);
             }
         }catch (SQLException ex){
@@ -60,14 +60,14 @@ public class gestion_tiene {
         }
         return datos;
     }
-    public boolean eliminarTiene(int nRegistro){
+    public boolean eliminarTiene(String nRegistro){
         boolean resultado=false;
         if(this.ConsultarTiene(nRegistro)!=null){
             try {
                 String sql = "delete from tiene where N°registro=?";
                 conec = con.conecta();
                 ps=conec.prepareStatement(sql);
-                ps.setInt(1, nRegistro);
+                ps.setString(1, nRegistro);
                 resultado = ps.executeUpdate() > 0;
             } catch (SQLException ex) {
                 System.out.println("Error al eliminar: " + ex);
@@ -85,7 +85,7 @@ public class gestion_tiene {
                 conec = con.conecta();
                 String sql = "INSERT INTO tiene (N°registro, noincidencia, idprioridad, descripcion, fecha_registro) VALUES (?,?,?,?,?)";
                 ps = conec.prepareStatement(sql);
-                ps.setInt(1, tien.getNºregitro());
+                ps.setString(1, tien.getNºregitro());
                 ps.setString(2, tien.getNoincidencia());
                 ps.setString(3, tien.getIdprioridad());
                 ps.setString(4, tien.getDescripcion());
@@ -109,7 +109,7 @@ public class gestion_tiene {
             ps.setString(2, tiene.getIdprioridad());
             ps.setString(3, tiene.getDescripcion());
             ps.setTimestamp(4, Timestamp.valueOf(tiene.getFecha_registro()));
-            ps.setInt(5, tiene.getNºregitro());
+            ps.setString(5, tiene.getNºregitro());
             resultado = ps.executeUpdate() > 0;
         } catch (SQLException ex) {
             System.out.println("Error al actualizar: " + ex.getMessage());

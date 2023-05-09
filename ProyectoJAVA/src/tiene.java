@@ -1,25 +1,26 @@
 public class tiene {
-    private int Nºregitro;
+    private String Nºregitro;
     private String noincidencia;
     private String idprioridad;
     private String descripcion;
     private String fecha_registro;
 
-    public tiene(int Nºregitro, String noincidencia, String idprioridad, String descripcion, String fecha_registro) {
-        this.Nºregitro = Nºregitro;
+    public tiene(String nºregitro, String noincidencia, String idprioridad, String descripcion, String fecha_registro) {
+        Nºregitro = nºregitro;
         this.noincidencia = noincidencia;
         this.idprioridad = idprioridad;
         this.descripcion = descripcion;
         this.fecha_registro = fecha_registro;
     }
-    public tiene(){
+
+    public tiene() {
     }
 
-    public int getNºregitro() {
+    public String getNºregitro() {
         return Nºregitro;
     }
 
-    public void setNºregitro(int nºregitro) {
+    public void setNºregitro(String nºregitro) {
         Nºregitro = nºregitro;
     }
 
@@ -58,8 +59,8 @@ public class tiene {
     @Override
     public String toString() {
         return "tiene{" +
-                "Nºregitro=" + Nºregitro +
-                ", noincidencia=" + noincidencia +
+                "Nºregitro='" + Nºregitro + '\'' +
+                ", noincidencia='" + noincidencia + '\'' +
                 ", idprioridad='" + idprioridad + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", fecha_registro='" + fecha_registro + '\'' +

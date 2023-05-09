@@ -1,16 +1,17 @@
 public class inicio {
     private String hora;
     private String fecha;
-    private int idinicio;
+    private String idinicio;
     private String iduser;
 
-    public inicio(String hora, String fecha, int idinicio, String iduser) {
+    public inicio(String hora, String fecha, String idinicio, String iduser) {
         this.hora = hora;
         this.fecha = fecha;
         this.idinicio = idinicio;
         this.iduser = iduser;
     }
-    public inicio(){
+
+    public inicio() {
     }
 
     public String getHora() {
@@ -29,11 +30,11 @@ public class inicio {
         this.fecha = fecha;
     }
 
-    public int getIdinicio() {
+    public String getIdinicio() {
         return idinicio;
     }
 
-    public void setIdinicio(int idinicio) {
+    public void setIdinicio(String idinicio) {
         this.idinicio = idinicio;
     }
 
@@ -50,8 +51,8 @@ public class inicio {
         return "inicio{" +
                 "hora='" + hora + '\'' +
                 ", fecha='" + fecha + '\'' +
-                ", idinicio=" + idinicio +
-                ", iduser=" + iduser +
+                ", idinicio='" + idinicio + '\'' +
+                ", iduser='" + iduser + '\'' +
                 '}';
     }
 }
