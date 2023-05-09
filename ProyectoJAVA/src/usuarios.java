@@ -2,9 +2,9 @@ public class usuarios {
     private String nombre;
     private String apellido;
     private String iduser;
-    private int documento;
+    private String documento;
 
-    public usuarios(String nombre, String apellido, String iduser, int documento) {
+    public usuarios(String nombre, String apellido, String iduser, String documento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.iduser = iduser;
@@ -38,11 +38,11 @@ public class usuarios {
         this.iduser = iduser;
     }
 
-    public int getDocumento() {
+    public String getDocumento() {
         return documento;
     }
 
-    public void setDocumento(int documento) {
+    public void setDocumento(String documento) {
         this.documento = documento;
     }
 
@@ -51,8 +51,8 @@ public class usuarios {
         return "usuarios{" +
                 "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
-                ", iduser=" + iduser +
-                ", documento=" + documento +
+                ", iduser='" + iduser + '\'' +
+                ", documento='" + documento + '\'' +
                 '}';
     }
 }

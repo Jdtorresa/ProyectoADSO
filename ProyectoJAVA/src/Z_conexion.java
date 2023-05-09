@@ -7,7 +7,7 @@ public class Z_conexion {
     private String bd="automatizacion";
     private String url="jdbc:mysql://localhost:3306/"+bd;
     private String user="root";
-    private String pass="123456gG";
+    private String pass="";
 
 
     Connection conec=null;

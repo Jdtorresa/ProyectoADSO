@@ -18,32 +18,14 @@ public class gestion_usuarios {
             ps.setString(1, iduser);
             res=ps.executeQuery();
             while(res.next()){
-                user= new usuarios(res.getString(1), res.getString(2), res.getString(3), res.getInt(4));
+                user= new usuarios(res.getString(1), res.getString(2), res.getString(3), res.getString(4));
             }
         }catch (SQLException ex){
             System.out.println("Error al consutlar: "+ex );
         }
         return user;
     }
-    public ArrayList<usuarios> C1(String prioridad){
-        datos.clear();
-        try{
-            conec=con.conecta();
-            String sql = "select * from usuarios \n" +
-                    "inner join incidencia on usuarios.iduser = incidencia.iduser \n" +
-                    "where incidencia.idprioridad = ?;";
-            ps=conec.prepareStatement(sql);
-            ps.setString(1, prioridad);
-            res= ps.executeQuery();
-            while(res.next()){
-                usuarios usua = new usuarios(res.getString(1), res.getString(2), res.getString(3), res.getInt(4));
-                datos.add(usua);
-            }
-        }catch (Exception ex){
-            System.out.println("Error al consultar: "+ex);
-        }
-        return datos;
-    }
+
 
     public boolean eliminarUsuario(String iduser){
         boolean resultado=false;
@@ -77,7 +59,7 @@ public class gestion_usuarios {
                     ps.setString(1, user.getNombre());
                     ps.setString(2, user.getApellido());
                     ps.setString(3, user.getIduser());
-                    ps.setInt(4, user.getDocumento());
+                    ps.setString(4, user.getDocumento());
                     resultado = ps.executeUpdate() > 0;
                 }
             catch (SQLException ex) {
@@ -96,7 +78,7 @@ public class gestion_usuarios {
                     ps = conec.prepareStatement(sql);
                     ps.setString(1, usu.getNombre());
                     ps.setString(2, usu.getApellido());
-                    ps.setInt(3, usu.getDocumento());
+                    ps.setString(3, usu.getDocumento());
                     ps.setString(4, usu.getIduser());
                     resultado = ps.executeUpdate() > 0;
                 }catch (SQLException ex) {
