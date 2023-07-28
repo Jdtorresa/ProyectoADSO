@@ -1,5 +1,4 @@
 create database automatizacion;
-drop database automatizacion;
 create table usuarios (
 nombre char(20) not null,
 apellido char(50)not null,
@@ -30,11 +29,8 @@ nombre varchar(50) not null,
 ubicacion varchar(50)not null,
 noincidencia varchar(20) not null,
 iduser char(20) not null,
-idprioridad char(20) not null,
 primary key(noincidencia),
-foreign key (iduser) references usuarios (iduser),
-foreign key (idprioridad) references prioridad (idprioridad)
-
+foreign key (iduser) references usuarios (iduser)
 );
 create table encuentra (
 N°registro char(20) not null,
@@ -94,27 +90,27 @@ insert into inicio values ('11:25', '2021-09-30', '07', '0007');
 insert into inicio values ('12:13', '2021-03-19', '08', '0008');
 insert into inicio values ('13:02', '2021-11-11', '09', '0009');
 insert into inicio values ('22:34', '2022-10-25', '10', '0010');
-insert into incidencia values ('Falla de domino', 'canapro', '00001', '0001','P1');
+insert into incidencia values ('Falla de domino', 'canapro', '00001', '0001');
 insert into incidencia values ('actualizacion de host', 'aventura', '00002',
-'0001','P2');
+'0001');
 insert into incidencia values ('Sincronizacion usuario de red', 'cc mall
 plaza','00003',
-'0001','P3');
+'0001');
 insert into incidencia values ('Actualizacion credenciales', 'aventura',
-'00004','0009','P1');
+'00004','0009');
 insert into incidencia values ('Instalación de controladores', 'canapro','00005',
-'0004','P2');
+'0004');
 insert into incidencia values ('Conexión escritorio Citrix', 'cc mall
-plaza','00006', '0010','P2');
+plaza','00006', '0010');
 
 insert into incidencia values ('Acceso a partner', 'canapro', '00007',
-'0010','P3');
+'0010');
 insert into incidencia values ('Falla de domino', 'aventura', '00008',
-'0006','P1');
+'0006');
 insert into incidencia values ('Conexión escritorio Citrix', 'cc mall
-plaza','00009', '0006','P3');
+plaza','00009', '0006');
 insert into incidencia values ('Sincronizacion usuario de red', 'canapro','00010',
-'0006','P2');
+'0006');
 insert into encuentra values ('19371820', '00001', 'E2', 'Se envia para la
 gestion
 correspondiente', '2022-07-12 09:55:55');
